@@ -5,7 +5,7 @@ using namespace std;
 class WalkableRobot {
 public:
     virtual void walk() = 0;
-    virtual ~WalkableRobot() {}
+    virtual ~WalkableRobot() {}//what is this for? it 
 };
 
 // --- Concrete Strategies for walk ---

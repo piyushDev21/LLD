@@ -141,7 +141,7 @@ public:
         this->notificationObservable = observable;
     }
 
-    void update() {
+    void update() override{ 
         cout << "Logging New Notification : \n" << notificationObservable->getNotificationContent();
     }
 };

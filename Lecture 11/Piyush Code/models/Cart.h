@@ -1,18 +1,15 @@
-#ifndef CART_H
-#define CART_H
+#ifndef CARRT_H
+#define CARRT_H
 
-#include <iostream>
 #include <vector>
-#include <string>
-#include "../models/MenuItem.h"
-#include "../models/Restaurant.h"
-
+#include "MenuItem.h"           
+#include "Restaurant.h"
 using namespace std;
 
 class Cart {
 private:
     Restaurant* restaurant;
-    vector<MenuItem> items;//here why not use pointer? because we want to store the actual items in the cart, not just pointers to them. Using a vector of MenuItem objects allows us to easily manage the items in the cart, including adding, removing, and calculating the total cost. If we used pointers, we would have to manage memory allocation and deallocation, which could lead to memory leaks or dangling pointers if not handled correctly. By using a vector of objects, we can take advantage of automatic memory management provided by C++'s standard library.
+    vector<MenuItem> items;
 
 public:
     Cart() {

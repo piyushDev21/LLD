@@ -13,7 +13,7 @@ private:
     }
  
 public:
-    // Double check locking..
+    // Double check locking..//T1 & T2 both check instance == nullptr, T1 acquires lock and creates instance, T2 waits for lock, T1 releases lock, T2 acquires lock and checks instance == nullptr again, which is false, so it doesn't create a new instance.
     static Singleton* getInstance() {
         if (instance == nullptr) {  // First check (no locking)
             lock_guard<mutex> lock(mtx);  // Lock only if needed

@@ -24,6 +24,7 @@ protected:
     Character* character;  // Wrapped component
 public:
     CharacterDecorator(Character* c){
+        cout << "Creating CharacterDecorator" << endl;
         this->character = c;
     }
 
@@ -32,7 +33,7 @@ public:
 // Concrete Decorator: Height-Increasing Power-Up.
 class HeightUp : public CharacterDecorator {
 public:
-    HeightUp(Character* c) : CharacterDecorator(c) { }
+    HeightUp(Character* c) : CharacterDecorator(c) { }//Before a HeightUp can exist, its CharacterDecorator part must be built first.
     
     string getAbilities() const override {
         return character->getAbilities() + " with HeightUp";
