@@ -98,7 +98,7 @@ public:
 class CompanionRobot : public Robot {
 public:
     CompanionRobot(WalkableRobot* w, TalkableRobot* t, FlyableRobot* f)
-        : Robot(w, t, f) {}
+        : Robot(w, t, f) {}//if I don't use this constructor, will it still work? yes, but it will use the default constructor of the base class, which may not initialize the behaviors correctly.
 
     void projection() override {
         cout << "Displaying friendly companion features..." << endl;
