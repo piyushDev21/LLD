@@ -5,7 +5,7 @@ using namespace std;
 class WalkableRobot {
 public:
     virtual void walk() = 0;
-    virtual ~WalkableRobot() {}
+    virtual ~WalkableRobot() {}//what is this for? it 
 };
 
 // --- Concrete Strategies for walk ---
@@ -98,7 +98,7 @@ public:
 class CompanionRobot : public Robot {
 public:
     CompanionRobot(WalkableRobot* w, TalkableRobot* t, FlyableRobot* f)
-        : Robot(w, t, f) {}
+        : Robot(w, t, f) {}//if I don't use this constructor, will it still work? yes, but it will use the default constructor of the base class, which may not initialize the behaviors correctly.
 
     void projection() override {
         cout << "Displaying friendly companion features..." << endl;

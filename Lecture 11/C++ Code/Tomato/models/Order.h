@@ -24,7 +24,7 @@ protected:
 
 public:
     Order() {
-        user = nullptr;
+        user = nullptr;//why null should be null because when an order is created, it may not be immediately associated with a user. The user may be set later when the order is placed or processed. Initializing it to nullptr ensures that we can check if a user has been assigned to the order before proceeding with any operations that require a user.
         restaurant = nullptr;
         paymentStrategy = nullptr;
         total = 0.0;
@@ -36,9 +36,11 @@ public:
         delete paymentStrategy;
     }
 
-    bool processPayment() {
+    bool processPayment() {//At this point, C++ does not know whether it will be UPI, Card, Wallet, etc.
+        //Then somewhere outside the Order class, somebody does:
+        //order->paymentStrategy = new UpiPaymentStrategy("9876543210");
         if (paymentStrategy) {
-            paymentStrategy->pay(total);
+            paymentStrategy->pay(total);//here 
             return true;
         } else {
             cout << "Please choose a payment mode first" << endl;

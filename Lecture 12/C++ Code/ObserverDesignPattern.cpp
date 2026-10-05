@@ -70,7 +70,7 @@ public:
 class Subscriber : public ISubscriber {
 private:
     string name;
-    Channel* channel;
+    Channel* channel;//has a reference to the channel it is subscribed to
 public:
     Subscriber(const string& name, Channel* channel) {
         this->name = name;

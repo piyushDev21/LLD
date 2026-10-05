@@ -24,6 +24,7 @@ protected:
     Character* character;  // Wrapped component
 public:
     CharacterDecorator(Character* c){
+        cout << "Creating CharacterDecorator" << endl;
         this->character = c;
     }
 
@@ -32,7 +33,7 @@ public:
 // Concrete Decorator: Height-Increasing Power-Up.
 class HeightUp : public CharacterDecorator {
 public:
-    HeightUp(Character* c) : CharacterDecorator(c) { }
+    HeightUp(Character* c) : CharacterDecorator(c) { }//Before a HeightUp can exist, its CharacterDecorator part must be built first.
     
     string getAbilities() const override {
         return character->getAbilities() + " with HeightUp";
@@ -46,7 +47,7 @@ public:
     GunPowerUp(Character* c) : CharacterDecorator(c) { }
     
     string getAbilities() const override {
-        return character->getAbilities() + " with Gun";
+        return character->getAbilities() + " with Gun";//shouldnt this be c->getAbilities() instead of character->getAbilities()?Answer: No, it should be character->getAbilities() because character is the member variable of the CharacterDecorator class that holds the wrapped component. Using character->getAbilities() ensures that we are calling the getAbilities() method on the wrapped component, which could be another decorator or the base Mario character. If we used c->getAbilities(), it would refer to the constructor parameter, which is not accessible in this context after the constructor has finished executing.
     }
 };
 
