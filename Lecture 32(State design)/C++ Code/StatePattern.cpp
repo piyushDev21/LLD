@@ -66,7 +66,7 @@ public:
     
     // Data access methods
     int getItemCount() { 
-        return itemCount; 
+        return itemCount; //here why not use this->itemCount? because
     }
     void decrementItemCount() { 
         itemCount--; 
@@ -84,7 +84,7 @@ public:
         insertedCoins += coin;
     }
     int getPrice() {
-        return this->itemPrice;
+        return this->itemPrice;//why use this->itemPrice? because here we
     }
     void setPrice(int itemPrice) {
         this->itemPrice = itemPrice;
@@ -265,7 +265,7 @@ VendingMachine::VendingMachine(int itemCount, int itemPrice) {
     
     // Set initial state
     if (itemCount  > 0) {
-        currentState = noCoinState;
+        currentState = noCoinState;//but I did not declare currentState as NoCoinState, I declared it as VendingState* currentState; so how can I assign it to NoCoinState? because NoCoinState is a subclass of VendingState, so we can assign it to VendingState* pointer.
     } else {
         currentState = soldOutState;
     }
